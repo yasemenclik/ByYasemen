@@ -15,5 +15,6 @@ namespace ByYsmn.EntityFramework.Context
 
 
         // DbSetler buraya eklenecek. (Veritabanı modelleri)
+        // public DbSet<Company> Companies {get; set;}
     }
 }
