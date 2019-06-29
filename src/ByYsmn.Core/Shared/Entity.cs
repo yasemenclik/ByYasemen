@@ -9,10 +9,17 @@ namespace ByYsmn.Core.Shared
     {
         public T Id { get; set; }
 
-        [ForeignKey("CreatorUserId")]
-        public virtual ApplicationUser CreatorUser { get; set; }
-        public string CreatorUserId { get; set; }
-        public string ModifierUserId { get; set; }
+        /*!!!!*/ [ForeignKey("CreatorUserId")]
+        /*!!!!*/ public virtual ApplicationUser CreatorUser { get; set; }
+        /*!!!!*/ public virtual Guid? CreatorUserId { get; set; }
+
+
+        /*++++*/ [ForeignKey("ModifierUserId")]
+        /*++++*/ public virtual ApplicationUser ModifierUser { get; set; }
+
+        /*++++*/ public virtual Guid? ModifierUserId { get; set; }
+
+        
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 

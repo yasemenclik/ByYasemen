@@ -4,55 +4,22 @@ using ByYsmn.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ByYsmn.Entityframework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190629120648_TestMigration")]
+    partial class TestMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("ByYsmn.Core.Companies.Company", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<Guid?>("CreatorUserId");
-
-                    b.Property<string>("Email");
-
-                    b.Property<DateTime?>("ModifiedDate");
-
-                    b.Property<Guid?>("ModifierUserId");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<string>("Tel")
-                        .IsRequired();
-
-                    b.Property<string>("WebSiteUrl");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatorUserId");
-
-                    b.HasIndex("ModifierUserId");
-
-                    b.ToTable("Companies");
-                });
 
             modelBuilder.Entity("ByYsmn.Core.Identity.ApplicationUser", b =>
                 {
@@ -216,17 +183,6 @@ namespace ByYsmn.Entityframework.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("ByYsmn.Core.Companies.Company", b =>
-                {
-                    b.HasOne("ByYsmn.Core.Identity.ApplicationUser", "CreatorUser")
-                        .WithMany()
-                        .HasForeignKey("CreatorUserId");
-
-                    b.HasOne("ByYsmn.Core.Identity.ApplicationUser", "ModifierUser")
-                        .WithMany()
-                        .HasForeignKey("ModifierUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
