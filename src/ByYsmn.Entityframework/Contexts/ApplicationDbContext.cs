@@ -14,6 +14,10 @@ namespace ByYsmn.EntityFramework.Context
 
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
 
         // DbSetler buraya eklenecek. (Veritabanı modelleri)
 

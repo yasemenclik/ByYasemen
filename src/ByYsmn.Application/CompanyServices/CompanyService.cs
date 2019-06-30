@@ -18,14 +18,16 @@ namespace ByYsmn.Application.CompanyServices
             _context = context;
         }
 
-        public async Task<Company> GetAsync(EntityInput<Guid> input)
+        public async Task<Company> Get(EntityInput<Guid> input)
         {
             return await _context.Companies.FindAsync(input.Id);
         }
 
         public async Task<List<Company>> GetAll()
         {
-            return await _context.Companies.ToListAsync();
+            return await _context.Companies
+                .Include(x => x.CreatorUser)
+                .Include(x => x.ModifierUser).ToListAsync();
         }
 
         public Task<List<Company>> GetAllByKeyWord(string input)
@@ -37,7 +39,7 @@ namespace ByYsmn.Application.CompanyServices
         {
             throw new NotImplementedException();
         }
-        public async Task<Company> CreateAsync(CompanyCreateInput input)
+        public async Task<Company> Create(CompanyCreateInput input)
         {
             var company = Company.Create(input.Name, input.Tel, input.Address, input.WebSiteUrl, input.Email, input.CreatorUserId);
 
@@ -49,7 +51,7 @@ namespace ByYsmn.Application.CompanyServices
         }
         public async Task<Company> Update(CompanyUpdateInput input)
         {
-            var oldCompany = await GetAsync(new EntityInput<Guid> { Id = input.Id });
+            var oldCompany = await Get(new EntityInput<Guid> { Id = input.Id });
 
             var updateCompany = Company.Update(oldCompany, input.Name, input.Tel, input.Address, input.WebSiteUrl, input.Email, input.ModifierUserId);
 

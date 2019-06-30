@@ -10,8 +10,8 @@ namespace ByYsmn.Application.Shared
         Task <List<TModel>> GetAll();
         Task <List<TModel>> GetAllByUserId(Guid userId);
         Task <List<TModel>> GetAllByKeyWord(string input);
-        Task <TModel> GetAsync(EntityInput<TPKey> input);
-        Task <TModel> CreateAsync(TCreateInput input);
+        Task <TModel> Get(EntityInput<TPKey> input);
+        Task <TModel> Create(TCreateInput input);
         Task <TModel> Update(TUpdateInput input);
         Task <TModel> Delete(EntityInput<TPKey> input);
     }

@@ -2,10 +2,12 @@
 using ByYsmn.Core.Companies;
 using System;
 using ByYsmn.Application.Shared;
+using System.Threading.Tasks;
+
 namespace ByYsmn.Application.CompanyServices
 {
     public interface ICompanyService
-        :IBaseService<Guid, CompanyCreateInput, CompanyUpdateInput, Company>
+        : IBaseService<Guid, CompanyCreateInput, CompanyUpdateInput, Company>
     {
         //Task/*return list type*/ GetAll();
         //Task/*return item type*/ Get(/*EntityInput*/);
