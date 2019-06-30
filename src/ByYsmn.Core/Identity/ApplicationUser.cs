@@ -10,9 +10,9 @@ namespace ByYsmn.Core.Identity
     public class ApplicationUser: IdentityUser<Guid>
     {
         [Required]
-        public string FirstName { get; set; }
+        public string Firstname { get; set; }
 
         [Required]
-        public string LastName { get; set; }
+        public string Lastname { get; set; }
     }
 }

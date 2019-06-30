@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ByYsmn.Application.Shared;
+using ByYsmn.Core.Shared;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace ByYsmn.Application.CompanyServices.Dtos
 {
-    public class CompanyCreateInput
+    public class CompanyCreateInput : EntityDto
     {
         [Required]
         [DisplayName("Firma Adı")]
@@ -26,5 +25,4 @@ namespace ByYsmn.Application.CompanyServices.Dtos
         [DisplayName("Email")]
         public string Email { get; set; }
     }
-
 }

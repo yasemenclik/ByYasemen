@@ -12,7 +12,7 @@ namespace ByYsmn.Core.Shared
         public Guid? CreatorUserId { get; set; }
 
         [DisplayName("Düzenleyen")]
-        public Guid?  ModifierUser { get; set; }
+        public Guid?  ModifierUserId { get; set; }
 
         [DisplayName("Oluşturma Tarihi")]
         public DateTime CreatedDate { get; set; }
